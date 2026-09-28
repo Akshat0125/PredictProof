@@ -3,25 +3,73 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0d1117;
+  --foreground: #f0f6fc;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
 }
 
+/* Custom horizontal scrollbar helper for mobile category tabs */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Solana Wallet Adapter UI styling overrides for dark theme */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%) !important;
+  color: #ffffff !important;
+  font-family: inherit !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  height: 2.25rem !important;
+  line-height: 2.25rem !important;
+  padding: 0 0.875rem !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.wallet-adapter-button:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%) !important;
+  opacity: 0.95 !important;
+}
+
+.wallet-adapter-dropdown-list {
+  background: #161b22 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+  color: #f0f6fc !important;
+  font-family: inherit !important;
+  font-size: 0.8125rem !important;
+}
+
+.wallet-adapter-dropdown-list-item:hover {
+  background: #21262d !important;
+  color: #ffffff !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: #161b22 !important;
+  border: 1px solid #30363d !important;
+  color: #f0f6fc !important;
+  border-radius: 1rem !important;
+}
+
+.wallet-adapter-modal-button-close {
+  background: #21262d !important;
 }

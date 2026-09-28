@@ -1,0 +1,12 @@
+{
+  "name": "PredictProof Underdog",
+  "symbol": "NFTKT",
+  "description": "Awarded for correctly calling an outcome priced at 15% or lower on PredictProof.",
+  "image": "https://predictproof.vercel.app/badges/underdog.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Underdog"
+    }
+  ]
+}

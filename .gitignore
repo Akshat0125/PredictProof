@@ -34,3 +34,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# anchor build artifacts (ignore target/ except idl + types, which the frontend imports)
+anchor/target/*
+!anchor/target/idl
+!anchor/target/idl/**
+!anchor/target/types
+!anchor/target/types/**
+anchor/.anchor/
+anchor/test-ledger/
+anchor/mock_metadata/target/*
+!anchor/mock_metadata/target/deploy
+anchor/mock_metadata/target/deploy/*
+!anchor/mock_metadata/target/deploy/mock_metadata.so

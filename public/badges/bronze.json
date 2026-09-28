@@ -1,0 +1,12 @@
+{
+  "name": "PredictProof Bronze",
+  "symbol": "NFTKT",
+  "description": "Awarded for 3+ correct predictions on PredictProof.",
+  "image": "https://predictproof.vercel.app/badges/bronze.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Bronze"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "marketId": "mock-btc-100k",
+    "eventId": "crypto-btc-2026",
+    "category": "crypto",
+    "title": "Will BTC hit $100k by March 2026?",
+    "resolved": true,
+    "winningOutcome": "YES",
+    "primaryYesPrice": "0.35",
+    "primaryNoPrice": "0.65",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "YES", "amountUsdc": "50.00", "priceAtEntry": "0.22" },
+      { "wallet": "9gWpQ4Mn7134kL5mNo9PqRsTuVwXyZ1234567890abcd", "side": "NO",  "amountUsdc": "30.00", "priceAtEntry": "0.68" },
+      { "wallet": "4vJ9JU1bJJE96FLSm75mUSDb38wZAUfKk8g8t6m1efgh", "side": "YES", "amountUsdc": "40.00", "priceAtEntry": "0.35" },
+      { "wallet": "5Yw3zL8Kk7R6F2T9B1H5jN8M4V3Q2X1Z7P9A6C4D5678", "side": "NO",  "amountUsdc": "25.00", "priceAtEntry": "0.65" }
+    ]
+  },
+  {
+    "marketId": "mock-eth-sol-flip",
+    "eventId": "crypto-flippening-2026",
+    "category": "crypto",
+    "title": "Will Solana market cap surpass Ethereum in 2026?",
+    "resolved": true,
+    "winningOutcome": "NO",
+    "primaryYesPrice": "0.20",
+    "primaryNoPrice": "0.80",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "NO",  "amountUsdc": "60.00", "priceAtEntry": "0.40" },
+      { "wallet": "9gWpQ4Mn7134kL5mNo9PqRsTuVwXyZ1234567890abcd", "side": "NO",  "amountUsdc": "100.00", "priceAtEntry": "0.12" },
+      { "wallet": "4vJ9JU1bJJE96FLSm75mUSDb38wZAUfKk8g8t6m1efgh", "side": "YES", "amountUsdc": "20.00", "priceAtEntry": "0.60" }
+    ]
+  },
+  {
+    "marketId": "mock-superbowl-2026",
+    "eventId": "sports-nfl-2026",
+    "category": "sports",
+    "title": "Will the Kansas City Chiefs win Super Bowl LX?",
+    "resolved": true,
+    "winningOutcome": "NO",
+    "primaryYesPrice": "0.45",
+    "primaryNoPrice": "0.55",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "NO",  "amountUsdc": "45.00", "priceAtEntry": "0.35" },
+      { "wallet": "9gWpQ4Mn7134kL5mNo9PqRsTuVwXyZ1234567890abcd", "side": "YES", "amountUsdc": "35.00", "priceAtEntry": "0.55" },
+      { "wallet": "4vJ9JU1bJJE96FLSm75mUSDb38wZAUfKk8g8t6m1efgh", "side": "NO",  "amountUsdc": "50.00", "priceAtEntry": "0.45" },
+      { "wallet": "5Yw3zL8Kk7R6F2T9B1H5jN8M4V3Q2X1Z7P9A6C4D5678", "side": "YES", "amountUsdc": "20.00", "priceAtEntry": "0.55" }
+    ]
+  },
+  {
+    "marketId": "mock-ucl-final-2026",
+    "eventId": "sports-ucl-2026",
+    "category": "sports",
+    "title": "Will Real Madrid win UEFA Champions League 2026?",
+    "resolved": true,
+    "winningOutcome": "YES",
+    "primaryYesPrice": "0.40",
+    "primaryNoPrice": "0.60",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "YES", "amountUsdc": "50.00", "priceAtEntry": "0.48" },
+      { "wallet": "9gWpQ4Mn7134kL5mNo9PqRsTuVwXyZ1234567890abcd", "side": "YES", "amountUsdc": "75.00", "priceAtEntry": "0.18" },
+      { "wallet": "4vJ9JU1bJJE96FLSm75mUSDb38wZAUfKk8g8t6m1efgh", "side": "YES", "amountUsdc": "30.00", "priceAtEntry": "0.50" }
+    ]
+  },
+  {
+    "marketId": "mock-us-senate-2026",
+    "eventId": "politics-midterms-2026",
+    "category": "politics",
+    "title": "Will Democrats retain the Senate majority in 2026 midterms?",
+    "resolved": true,
+    "winningOutcome": "NO",
+    "primaryYesPrice": "0.48",
+    "primaryNoPrice": "0.52",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "NO",  "amountUsdc": "40.00", "priceAtEntry": "0.45" },
+      { "wallet": "9gWpQ4Mn7134kL5mNo9PqRsTuVwXyZ1234567890abcd", "side": "NO",  "amountUsdc": "50.00", "priceAtEntry": "0.25" },
+      { "wallet": "5Yw3zL8Kk7R6F2T9B1H5jN8M4V3Q2X1Z7P9A6C4D5678", "side": "YES", "amountUsdc": "30.00", "priceAtEntry": "0.55" }
+    ]
+  },
+  {
+    "marketId": "mock-fed-rate-cut-2026",
+    "eventId": "economy-fed-2026",
+    "category": "economy",
+    "title": "Will Federal Reserve cut interest rates 3 or more times in 2026?",
+    "resolved": true,
+    "winningOutcome": "YES",
+    "primaryYesPrice": "0.60",
+    "primaryNoPrice": "0.40",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "YES", "amountUsdc": "35.00", "priceAtEntry": "0.30" },
+      { "wallet": "9gWpQ4Mn7134kL5mNo9PqRsTuVwXyZ1234567890abcd", "side": "YES", "amountUsdc": "60.00", "priceAtEntry": "0.42" },
+      { "wallet": "4vJ9JU1bJJE96FLSm75mUSDb38wZAUfKk8g8t6m1efgh", "side": "YES", "amountUsdc": "25.00", "priceAtEntry": "0.48" }
+    ]
+  },
+  {
+    "marketId": "mock-sol-etf-approved",
+    "eventId": "crypto-sol-etf-2026",
+    "category": "crypto",
+    "title": "Will a spot Solana ETF be approved by SEC by July 2026?",
+    "resolved": true,
+    "winningOutcome": "YES",
+    "primaryYesPrice": "0.55",
+    "primaryNoPrice": "0.45",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "YES", "amountUsdc": "80.00", "priceAtEntry": "0.28" },
+      { "wallet": "5Yw3zL8Kk7R6F2T9B1H5jN8M4V3Q2X1Z7P9A6C4D5678", "side": "YES", "amountUsdc": "40.00", "priceAtEntry": "0.40" }
+    ]
+  },
+  {
+    "marketId": "mock-spacex-starship",
+    "eventId": "tech-starship-2026",
+    "category": "tech",
+    "title": "Will SpaceX Starship complete an uncrewed lunar orbit in 2026?",
+    "resolved": true,
+    "winningOutcome": "YES",
+    "primaryYesPrice": "0.30",
+    "primaryNoPrice": "0.70",
+    "positions": [
+      { "wallet": "7xKXtg2CW37d97TXJSDpbD5jBkheTqA83TZRuJosgWp1", "side": "YES", "amountUsdc": "70.00", "priceAtEntry": "0.32" },
+      { "wallet": "5Yw3zL8Kk7R6F2T9B1H5jN8M4V3Q2X1Z7P9A6C4D5678", "side": "NO",  "amountUsdc": "20.00", "priceAtEntry": "0.68" }
+    ]
+  }
+]

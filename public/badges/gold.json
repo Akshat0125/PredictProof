@@ -1,0 +1,12 @@
+{
+  "name": "PredictProof Gold",
+  "symbol": "NFTKT",
+  "description": "Awarded for 15+ correct picks at 75%+ accuracy on PredictProof.",
+  "image": "https://predictproof.vercel.app/badges/gold.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Gold"
+    }
+  ]
+}
