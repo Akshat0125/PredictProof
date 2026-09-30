@@ -2,7 +2,7 @@
 
 import React from "react";
 import { PantaMarket } from "@/lib/panta-client";
-import { Clock, BarChart2 } from "lucide-react";
+import { ClockIcon, MarketVolumeIcon } from "@/components/icons";
 
 interface MarketCardProps {
   market: PantaMarket;
@@ -52,7 +52,7 @@ export function MarketCard({ market }: MarketCardProps) {
         <div className="flex items-center gap-1.5 text-[11px] text-[#8b949e]">
           {formattedResolution && (
             <span className="flex items-center gap-1">
-              <Clock className="w-3 h-3 text-[#6e7681]" />
+              <ClockIcon className="w-3 h-3 text-[#6e7681]" />
               {formattedResolution}
             </span>
           )}
@@ -130,7 +130,7 @@ export function MarketCard({ market }: MarketCardProps) {
       {/* Footer: Volume & Action Footer */}
       <div className="pt-3 border-t border-[#21262d] flex items-center justify-between text-xs text-[#8b949e]">
         <div className="flex items-center gap-1.5 font-medium">
-          <BarChart2 className="w-3.5 h-3.5 text-[#58a6ff]" />
+          <MarketVolumeIcon className="w-3.5 h-3.5 text-[#58a6ff]" />
           <span>{formattedVolume} Vol</span>
         </div>
 

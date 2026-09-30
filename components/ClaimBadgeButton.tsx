@@ -21,12 +21,12 @@ import {
 } from "@/lib/event-attendance-nft-exports";
 import { BadgeTier } from "@/lib/scoring";
 import {
-  CheckCircle2,
-  ExternalLink,
-  Loader2,
-  Sparkles,
-  AlertCircle,
-} from "lucide-react";
+  HexCheckIcon,
+  ExternalLinkIcon,
+  DashedSpinnerIcon,
+  CoinFlipIcon,
+  AlertTriangleIcon,
+} from "@/components/icons";
 
 const METADATA_PROGRAM_ID = new PublicKey(
   "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
@@ -184,7 +184,7 @@ export function ClaimBadgeButton({
   if (checking) {
     return (
       <div className="flex items-center justify-center gap-1.5 py-2 px-3 text-xs text-[#8b949e] bg-[#21262d]/50 rounded-xl">
-        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+        <DashedSpinnerIcon className="w-3.5 h-3.5 animate-spin" />
         <span>Checking claim status...</span>
       </div>
     );
@@ -197,7 +197,7 @@ export function ClaimBadgeButton({
           disabled
           className="w-full py-2 px-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold flex items-center justify-center gap-1.5 cursor-default"
         >
-          <CheckCircle2 className="w-3.5 h-3.5" />
+          <HexCheckIcon className="w-3.5 h-3.5" />
           <span>Claimed ✓</span>
         </button>
 
@@ -209,7 +209,7 @@ export function ClaimBadgeButton({
             className="flex items-center justify-center gap-1 text-[10px] text-purple-400 hover:text-purple-300 font-mono transition-colors"
           >
             <span>View Mint Tx</span>
-            <ExternalLink className="w-3 h-3" />
+            <ExternalLinkIcon className="w-3 h-3" />
           </a>
         )}
       </div>
@@ -225,12 +225,12 @@ export function ClaimBadgeButton({
       >
         {isClaiming ? (
           <>
-            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+            <DashedSpinnerIcon className="w-3.5 h-3.5 animate-spin" />
             <span>Minting Soulbound NFT...</span>
           </>
         ) : (
           <>
-            <Sparkles className="w-3.5 h-3.5" />
+            <CoinFlipIcon className="w-3.5 h-3.5" />
             <span>Claim Soulbound Badge</span>
           </>
         )}
@@ -238,7 +238,7 @@ export function ClaimBadgeButton({
 
       {errorMessage && (
         <div className="flex items-start gap-1 text-[11px] text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2 rounded-lg">
-          <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+          <AlertTriangleIcon className="w-3.5 h-3.5 shrink-0 mt-0.5" />
           <span className="leading-tight">{errorMessage}</span>
         </div>
       )}

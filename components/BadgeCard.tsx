@@ -2,7 +2,15 @@
 
 import React from "react";
 import { BadgeTier } from "@/lib/scoring";
-import { Award, Shield, Target, Flame, Sparkles, Check, Lock } from "lucide-react";
+import {
+  MedalRibbonIcon,
+  ShieldIcon,
+  CrosshairIcon,
+  FlameStreakIcon,
+  CoinFlipIcon,
+  CheckIcon,
+  PadlockIcon,
+} from "@/components/icons";
 
 interface BadgeCardProps {
   tier: BadgeTier;
@@ -34,7 +42,7 @@ export const BADGE_METADATA: Record<
     gradient: "from-amber-400 via-yellow-500 to-amber-600",
     borderColor: "border-amber-400/50",
     textColor: "text-amber-400",
-    icon: Sparkles,
+    icon: CoinFlipIcon,
     accentBg: "bg-amber-500/10",
   },
   silver: {
@@ -45,7 +53,7 @@ export const BADGE_METADATA: Record<
     gradient: "from-slate-200 via-cyan-300 to-blue-400",
     borderColor: "border-cyan-400/50",
     textColor: "text-cyan-300",
-    icon: Shield,
+    icon: ShieldIcon,
     accentBg: "bg-cyan-500/10",
   },
   bronze: {
@@ -56,7 +64,7 @@ export const BADGE_METADATA: Record<
     gradient: "from-amber-600 via-orange-500 to-amber-700",
     borderColor: "border-orange-500/40",
     textColor: "text-orange-400",
-    icon: Award,
+    icon: MedalRibbonIcon,
     accentBg: "bg-orange-500/10",
   },
   underdog: {
@@ -67,7 +75,7 @@ export const BADGE_METADATA: Record<
     gradient: "from-fuchsia-500 via-purple-500 to-indigo-600",
     borderColor: "border-fuchsia-500/50",
     textColor: "text-fuchsia-400",
-    icon: Target,
+    icon: CrosshairIcon,
     accentBg: "bg-fuchsia-500/10",
   },
   none: {
@@ -78,7 +86,7 @@ export const BADGE_METADATA: Record<
     gradient: "from-gray-600 to-slate-700",
     borderColor: "border-gray-700",
     textColor: "text-gray-400",
-    icon: Flame,
+    icon: FlameStreakIcon,
     accentBg: "bg-gray-800/40",
   },
 };
@@ -97,7 +105,7 @@ export function BadgeCard({
     return (
       <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-5 text-center flex flex-col items-center justify-center space-y-2 opacity-60">
         <div className="w-12 h-12 rounded-full bg-[#21262d] flex items-center justify-center text-gray-500">
-          <Lock className="w-5 h-5" />
+          <PadlockIcon className="w-5 h-5" />
         </div>
         <div className="font-semibold text-sm text-[#f0f6fc]">No Badges Earned Yet</div>
         <p className="text-xs text-[#8b949e] max-w-xs">
@@ -127,12 +135,12 @@ export function BadgeCard({
 
         {unlocked ? (
           <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
-            <Check className="w-3 h-3" />
+            <CheckIcon className="w-3 h-3" />
             Soulbound Ready
           </span>
         ) : (
           <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-gray-500 bg-gray-800/40 px-2 py-0.5 rounded-full border border-gray-700">
-            <Lock className="w-3 h-3" />
+            <PadlockIcon className="w-3 h-3" />
             Locked
           </span>
         )}

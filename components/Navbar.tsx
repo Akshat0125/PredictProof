@@ -3,7 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShieldCheck, Trophy, Sparkles, TrendingUp } from "lucide-react";
+import {
+  ShieldCheckIcon,
+  TrophyIcon,
+  CoinFlipIcon,
+  TrendingChartIcon,
+} from "@/components/icons";
 import { WalletButton } from "./WalletButton";
 
 interface NavbarProps {
@@ -49,7 +54,7 @@ export function Navbar({
           <div className="flex items-center gap-3 shrink-0">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-500/20 group-hover:scale-105 transition-transform">
-                <ShieldCheck className="w-5 h-5 text-white" />
+                <ShieldCheckIcon className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5">
@@ -95,7 +100,7 @@ export function Navbar({
                     : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
                 }`}
               >
-                <TrendingUp className="w-4 h-4 text-emerald-400" />
+                <TrendingChartIcon className="w-4 h-4 text-emerald-400" />
                 <span>Markets</span>
               </Link>
               <Link
@@ -106,7 +111,7 @@ export function Navbar({
                     : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
                 }`}
               >
-                <Trophy className="w-4 h-4 text-yellow-500" />
+                <TrophyIcon className="w-4 h-4 text-yellow-500" />
                 <span>Leaderboard</span>
               </Link>
               <Link
@@ -117,7 +122,7 @@ export function Navbar({
                     : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-purple-400" />
+                <CoinFlipIcon className="w-4 h-4 text-purple-400" />
                 <span>My Profile</span>
               </Link>
             </div>
@@ -131,14 +136,14 @@ export function Navbar({
                   href="/leaderboard"
                   className="hidden md:flex items-center gap-1.5 text-xs font-medium text-[#8b949e] hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-[#161b22] transition-colors"
                 >
-                  <Trophy className="w-3.5 h-3.5 text-yellow-500" />
+                  <TrophyIcon className="w-3.5 h-3.5 text-yellow-500" />
                   <span>Leaderboard</span>
                 </Link>
                 <Link
                   href="/profile"
                   className="hidden lg:flex items-center gap-1.5 text-xs font-medium text-[#8b949e] hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-[#161b22] transition-colors"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+                  <CoinFlipIcon className="w-3.5 h-3.5 text-purple-400" />
                   <span>Profile</span>
                 </Link>
               </>

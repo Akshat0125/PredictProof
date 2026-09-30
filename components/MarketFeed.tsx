@@ -5,7 +5,13 @@ import Link from "next/link";
 import { PantaMarket } from "@/lib/panta-client";
 import { MarketCard } from "./MarketCard";
 import { Navbar } from "./Navbar";
-import { AlertCircle, Layers, CheckCircle2, Award, Zap } from "lucide-react";
+import {
+  AlertTriangleIcon,
+  LayersIcon,
+  HexCheckIcon,
+  MedalRibbonIcon,
+  LightningIcon,
+} from "@/components/icons";
 
 interface MarketFeedProps {
   initialMarkets: PantaMarket[];
@@ -64,13 +70,13 @@ export function MarketFeed({
           {/* Quick Stats Pill */}
           <div className="flex items-center gap-2 self-start md:self-auto bg-[#161b22] border border-[#30363d] px-3.5 py-2 rounded-xl text-xs text-[#8b949e]">
             <div className="flex items-center gap-1.5 text-[#f0f6fc]">
-              <Layers className="w-4 h-4 text-purple-400" />
+              <LayersIcon className="w-4 h-4 text-purple-400" />
               <span className="font-semibold">{initialMarkets.length}</span>
               <span className="text-[#8b949e]">Market{initialMarkets.length === 1 ? "" : "s"}</span>
             </div>
             <span className="text-[#30363d]">|</span>
             <div className="flex items-center gap-1 text-emerald-400">
-              <Zap className="w-3.5 h-3.5" />
+              <LightningIcon className="w-3.5 h-3.5" />
               <span>Live Binary Odds</span>
             </div>
           </div>
@@ -79,7 +85,7 @@ export function MarketFeed({
         {/* Disclaimer / Sandbox Test Mode Notice */}
         {disclaimer && (
           <div className="bg-[#161b22] border border-amber-500/30 text-amber-200/90 px-4 py-3 rounded-xl flex items-start gap-3 text-xs sm:text-sm">
-            <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+            <AlertTriangleIcon className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
             <div className="space-y-0.5">
               <p className="font-semibold text-amber-300">
                 {isMockFallback ? "Panta Local Fixture Mode" : "Panta Sandbox Fixture Mode"}
@@ -115,7 +121,7 @@ export function MarketFeed({
           /* Empty Filter State */
           <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-10 text-center space-y-3">
             <div className="w-12 h-12 rounded-full bg-[#21262d] flex items-center justify-center mx-auto text-[#8b949e]">
-              <Layers className="w-6 h-6" />
+              <LayersIcon className="w-6 h-6" />
             </div>
             <h3 className="text-base font-semibold text-[#f0f6fc]">
               No markets found in &ldquo;{selectedCategory}&rdquo;
@@ -143,7 +149,7 @@ export function MarketFeed({
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-yellow-400">
-                  <Award className="w-4 h-4" />
+                  <MedalRibbonIcon className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Predictor Rankings</span>
                 </div>
                 <span className="text-xs text-yellow-400 font-semibold group-hover:translate-x-0.5 transition-transform">
@@ -166,7 +172,7 @@ export function MarketFeed({
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-purple-400">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <HexCheckIcon className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Soulbound NFT Badges</span>
                 </div>
                 <span className="text-xs text-purple-400 font-semibold group-hover:translate-x-0.5 transition-transform">

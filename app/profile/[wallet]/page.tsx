@@ -13,15 +13,15 @@ import { Navbar } from "@/components/Navbar";
 import { BadgeCard, BADGE_METADATA } from "@/components/BadgeCard";
 import { ClaimBadgeButton } from "@/components/ClaimBadgeButton";
 import {
-  ArrowLeft,
-  ExternalLink,
-  Flame,
-  CheckCircle2,
-  XCircle,
-  HelpCircle,
-  Trophy,
-  Sparkles,
-} from "lucide-react";
+  ArrowLeftIcon,
+  ExternalLinkIcon,
+  FlameStreakIcon,
+  HexCheckIcon,
+  XBadgeIcon,
+  HelpBadgeIcon,
+  TrophyIcon,
+  CoinFlipIcon,
+} from "@/components/icons";
 
 interface ProfilePageProps {
   params: {
@@ -78,7 +78,7 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
             href="/leaderboard"
             className="hover:text-white flex items-center gap-1 transition-colors"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeftIcon className="w-3.5 h-3.5" />
             Back to Leaderboard
           </Link>
           <span>/</span>
@@ -95,7 +95,7 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
           <div className="flex items-start sm:items-center gap-4">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 p-0.5 shadow-lg shadow-purple-500/20 shrink-0">
               <div className="w-full h-full bg-[#12161f] rounded-[14px] flex items-center justify-center text-white">
-                <Trophy className="w-8 h-8 text-purple-400" />
+                <TrophyIcon className="w-8 h-8 text-purple-400" />
               </div>
             </div>
 
@@ -129,7 +129,7 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#21262d] hover:bg-[#30363d] text-xs font-medium text-[#f0f6fc] border border-[#30363d] transition-colors"
             >
               <span>Solana Devnet Explorer</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#8b949e]" />
+              <ExternalLinkIcon className="w-3.5 h-3.5 text-[#8b949e]" />
             </a>
           </div>
         </section>
@@ -191,7 +191,7 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
                   {score.currentStreak}W
                 </span>
                 {score.currentStreak >= 3 && (
-                  <Flame className="w-5 h-5 text-orange-400" />
+                  <FlameStreakIcon className="w-5 h-5 text-orange-400" />
                 )}
               </div>
               <span className="text-[10px] text-[#6e7681] block mt-1">
@@ -238,7 +238,7 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
                 </span>
                 {isOwnProfile && (
                   <span className="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20 font-medium flex items-center gap-1">
-                    <Sparkles className="w-3 h-3" />
+                    <CoinFlipIcon className="w-3 h-3" />
                     Your Connected Wallet
                   </span>
                 )}
@@ -276,7 +276,7 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
           {!hasHistory && (
             <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-8 text-center space-y-4">
               <div className="w-12 h-12 rounded-full bg-[#21262d] flex items-center justify-center mx-auto text-[#8b949e]">
-                <HelpCircle className="w-6 h-6 text-purple-400" />
+                <HelpBadgeIcon className="w-6 h-6 text-purple-400" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-base font-semibold text-white">
@@ -365,11 +365,11 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
                         <span className="text-[10px] text-[#8b949e] block uppercase">Result</span>
                         {pos.isCorrect ? (
                           <span className="inline-flex items-center gap-1 font-bold text-emerald-400">
-                            <CheckCircle2 className="w-3.5 h-3.5" /> Won
+                            <HexCheckIcon className="w-3.5 h-3.5" /> Won
                           </span>
                         ) : (
                           <span className="inline-flex items-center gap-1 font-bold text-rose-400">
-                            <XCircle className="w-3.5 h-3.5" /> Lost
+                            <XBadgeIcon className="w-3.5 h-3.5" /> Lost
                           </span>
                         )}
                       </div>

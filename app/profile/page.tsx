@@ -7,13 +7,13 @@ import { Navbar } from "@/components/Navbar";
 import { WalletButton } from "@/components/WalletButton";
 import Link from "next/link";
 import {
-  Wallet,
-  Sparkles,
-  Shield,
-  ArrowRight,
-  Target,
-  Trophy,
-} from "lucide-react";
+  SolanaWalletIcon,
+  CoinFlipIcon,
+  ShieldIcon,
+  ArrowRightIcon,
+  CrosshairIcon,
+  TrophyIcon,
+} from "@/components/icons";
 
 const SAMPLE_WALLETS = [
   {
@@ -21,7 +21,7 @@ const SAMPLE_WALLETS = [
     label: "Top Predictor (Silver Tier)",
     score: "14.40 pts",
     accuracy: "100%",
-    icon: Trophy,
+    icon: TrophyIcon,
     color: "text-amber-400",
   },
   {
@@ -29,7 +29,7 @@ const SAMPLE_WALLETS = [
     label: "Underdog Sniper (≤15¢ Winner)",
     score: "7.56 pts",
     accuracy: "66.7%",
-    icon: Target,
+    icon: CrosshairIcon,
     color: "text-fuchsia-400",
   },
   {
@@ -37,7 +37,7 @@ const SAMPLE_WALLETS = [
     label: "Bronze Forecaster",
     score: "5.94 pts",
     accuracy: "80%",
-    icon: Shield,
+    icon: ShieldIcon,
     color: "text-orange-400",
   },
 ];
@@ -65,7 +65,7 @@ export default function ProfileRootPage() {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-600/10 blur-3xl pointer-events-none rounded-full" />
 
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center mx-auto shadow-lg shadow-purple-600/30">
-            <Wallet className="w-8 h-8 text-white" />
+            <SolanaWalletIcon className="w-8 h-8 text-white" />
           </div>
 
           <div className="space-y-2 max-w-lg mx-auto">
@@ -87,7 +87,7 @@ export default function ProfileRootPage() {
         <div className="space-y-4 pt-4">
           <div className="text-center space-y-1">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-[#8b949e] flex items-center justify-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <CoinFlipIcon className="w-4 h-4 text-purple-400" />
               Explore Sample Predictor Profiles
             </h2>
             <p className="text-xs text-[#6e7681]">
@@ -119,7 +119,7 @@ export default function ProfileRootPage() {
                   <div className="mt-4 pt-3 border-t border-[#21262d] flex items-center justify-between text-xs font-mono">
                     <span className="text-emerald-400 font-bold">{sample.accuracy} Acc</span>
                     <span className="text-white font-bold">{sample.score}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#6e7681] group-hover:translate-x-1 group-hover:text-white transition-all" />
+                    <ArrowRightIcon className="w-3.5 h-3.5 text-[#6e7681] group-hover:translate-x-1 group-hover:text-white transition-all" />
                   </div>
                 </Link>
               );

@@ -4,15 +4,15 @@ import resolvedMarketsData from "@/lib/mock-data/resolved-markets.json";
 import { rankWallets, ResolvedMarket, BadgeTier } from "@/lib/scoring";
 import { Navbar } from "@/components/Navbar";
 import {
-  Trophy,
-  Flame,
-  Award,
-  Shield,
-  Target,
-  ArrowUpRight,
-  TrendingUp,
-  Sparkles,
-} from "lucide-react";
+  TrophyIcon,
+  FlameStreakIcon,
+  MedalRibbonIcon,
+  ShieldIcon,
+  CrosshairIcon,
+  ArrowUpRightIcon,
+  TrendingChartIcon,
+  CoinFlipIcon,
+} from "@/components/icons";
 
 export const metadata = {
   title: "Predictor Leaderboard — PredictProof",
@@ -30,28 +30,28 @@ function getBadgePill(tier: BadgeTier) {
     case "gold":
       return (
         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30">
-          <Sparkles className="w-3 h-3" />
+          <CoinFlipIcon className="w-3 h-3" />
           Gold Oracle
         </span>
       );
     case "silver":
       return (
         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
-          <Shield className="w-3 h-3" />
+          <ShieldIcon className="w-3 h-3" />
           Silver Forecaster
         </span>
       );
     case "bronze":
       return (
         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/30">
-          <Award className="w-3 h-3" />
+          <MedalRibbonIcon className="w-3 h-3" />
           Bronze Predictor
         </span>
       );
     case "underdog":
       return (
         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/30">
-          <Target className="w-3 h-3" />
+          <CrosshairIcon className="w-3 h-3" />
           Underdog Sniper
         </span>
       );
@@ -114,7 +114,7 @@ export default function LeaderboardPage() {
           <div>
             <div className="flex items-center gap-2 mb-1.5">
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
-                <Trophy className="w-3 h-3" />
+                <TrophyIcon className="w-3 h-3" />
                 Live Reputation Leaderboard
               </span>
             </div>
@@ -168,7 +168,7 @@ export default function LeaderboardPage() {
         {/* Scoring Rule Explainer Banner */}
         <div className="bg-[#161b22] border border-[#30363d] rounded-xl p-4 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[#8b949e]">
           <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-brand-400 shrink-0" />
+            <TrendingChartIcon className="w-4 h-4 text-brand-400 shrink-0" />
             <span>
               <strong className="text-white">Scoring Formula:</strong> Total Score = Correct Picks + Underdog Bonus (entry odds ≤ 50¢) + Streak Bonus (≥3 streak = streak × 0.5)
             </span>
@@ -217,7 +217,7 @@ export default function LeaderboardPage() {
                         className="font-mono text-sm text-white hover:text-brand-400 font-semibold transition-colors flex items-center gap-1.5"
                       >
                         {formatWallet(score.wallet)}
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#6e7681] group-hover:text-brand-400 transition-colors" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5 text-[#6e7681] group-hover:text-brand-400 transition-colors" />
                       </Link>
                     </td>
 
@@ -252,7 +252,7 @@ export default function LeaderboardPage() {
                               : "text-white"
                           }`}
                         >
-                          {score.currentStreak >= 3 && <Flame className="w-3 h-3 text-orange-400" />}
+                          {score.currentStreak >= 3 && <FlameStreakIcon className="w-3 h-3 text-orange-400" />}
                           {score.currentStreak}W
                         </span>
                       ) : (
