@@ -9,22 +9,22 @@ import { getEventAttendanceNftProgram } from "../lib/event-attendance-nft-export
 const BADGE_TIERS = [
   {
     key: "bronze",
-    name: "PredictProof Bronze",
+    name: "PredictProof Bronze v2",
     badgeFile: "bronze.json",
   },
   {
     key: "silver",
-    name: "PredictProof Silver",
+    name: "PredictProof Silver v2",
     badgeFile: "silver.json",
   },
   {
     key: "gold",
-    name: "PredictProof Gold",
+    name: "PredictProof Gold v2",
     badgeFile: "gold.json",
   },
   {
     key: "underdog",
-    name: "PredictProof Underdog",
+    name: "PredictProof Underdog v2",
     badgeFile: "underdog.json",
   },
 ];
@@ -63,7 +63,7 @@ async function main() {
   console.log(`Program ID: ${program.programId.toBase58()}\n`);
 
   // Production base URL for badge metadata JSON
-  const baseUrl = (process.env.PRODUCTION_URL || "https://predictproof.vercel.app").replace(/\/$/, "");
+  const baseUrl = (process.env.PRODUCTION_URL || "https://predict-proof.vercel.app").replace(/\/$/, "");
   console.log(`Base Metadata URL: ${baseUrl}\n`);
 
   const results: Record<string, { name: string; pda: string; badgeUri: string }> = {};
