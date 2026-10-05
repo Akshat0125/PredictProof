@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useWallet } from "@solana/wallet-adapter-react";
 import {
   ShieldCheckIcon,
   TrophyIcon,
   CoinFlipIcon,
   TrendingChartIcon,
+  CrosshairIcon,
 } from "@/components/icons";
 import { WalletButton } from "./WalletButton";
 
@@ -33,7 +35,37 @@ export function Navbar({
   showCategories = true,
 }: NavbarProps) {
   const pathname = usePathname();
+  const { publicKey, connected } = useWallet();
   const [selected, setSelected] = useState(activeCategory);
+  const [pointsBalance, setPointsBalance] = useState<number | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function fetchPoints() {
+      if (connected && publicKey) {
+        try {
+          const res = await fetch(`/api/wallet/${publicKey.toBase58()}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (isMounted && typeof data.pointsBalance === "number") {
+              setPointsBalance(data.pointsBalance);
+            }
+          }
+        } catch (err) {
+          console.error("Failed to load points balance:", err);
+        }
+      } else {
+        if (isMounted) {
+          setPointsBalance(null);
+        }
+      }
+    }
+
+    fetchPoints();
+    return () => {
+      isMounted = false;
+    };
+  }, [connected, publicKey]);
 
   const handleSelect = (category: string) => {
     setSelected(category);
@@ -42,6 +74,7 @@ export function Navbar({
     }
   };
 
+  const isPredict = pathname === "/predict";
   const isLeaderboard = pathname === "/leaderboard";
   const isProfile = pathname.startsWith("/profile");
 
@@ -104,6 +137,17 @@ export function Navbar({
                 <span>Markets</span>
               </Link>
               <Link
+                href="/predict"
+                className={`flex items-center gap-1.5 text-xs sm:text-sm font-medium px-3 py-1.5 rounded-lg transition-colors ${
+                  isPredict
+                    ? "bg-[#21262d] text-white border border-[#30363d]"
+                    : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
+                }`}
+              >
+                <CrosshairIcon className="w-4 h-4 text-purple-400" />
+                <span>Predict</span>
+              </Link>
+              <Link
                 href="/leaderboard"
                 className={`flex items-center gap-1.5 text-xs sm:text-sm font-medium px-3 py-1.5 rounded-lg transition-colors ${
                   isLeaderboard
@@ -133,6 +177,17 @@ export function Navbar({
             {showCategories && (
               <>
                 <Link
+                  href="/predict"
+                  className={`hidden sm:flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-lg transition-colors ${
+                    isPredict
+                      ? "bg-[#21262d] text-white border border-[#30363d]"
+                      : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
+                  }`}
+                >
+                  <CrosshairIcon className="w-3.5 h-3.5 text-purple-400" />
+                  <span>Predict</span>
+                </Link>
+                <Link
                   href="/leaderboard"
                   className="hidden md:flex items-center gap-1.5 text-xs font-medium text-[#8b949e] hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-[#161b22] transition-colors"
                 >
@@ -147,6 +202,14 @@ export function Navbar({
                   <span>Profile</span>
                 </Link>
               </>
+            )}
+
+            {/* Points Balance Pill */}
+            {connected && pointsBalance !== null && (
+              <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs font-bold shadow-sm">
+                <span className="text-[10px] text-amber-400 uppercase">Pts</span>
+                <span>{pointsBalance}</span>
+              </div>
             )}
 
             {/* Live Devnet Solana Wallet Multi Button */}
