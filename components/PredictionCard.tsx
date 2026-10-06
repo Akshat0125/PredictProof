@@ -3,10 +3,9 @@
 import React, { useState, useEffect } from "react";
 import {
   HexCheckIcon,
+  CheckIcon,
   XBadgeIcon,
-  ClockIcon,
   DashedSpinnerIcon,
-  CoinFlipIcon,
 } from "@/components/icons";
 
 export interface TestMarket {
@@ -133,21 +132,21 @@ export function PredictionCard({
     isResolved && userSide && market.winning_side && userSide !== market.winning_side;
 
   return (
-    <article className="bg-[#161b22] hover:bg-[#1a1f27] border border-[#30363d] hover:border-purple-500/40 rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 shadow-md shadow-black/20 hover:shadow-black/40 relative">
+    <article className="group bg-[#161b22] hover:bg-[#1c2128] border border-[#30363d] hover:border-purple-500/30 rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 shadow-md shadow-black/20 hover:shadow-black/40 relative">
       
       {/* Top Header: Category Pill & Distinct "Demo Prediction" Badge */}
       <div className="flex items-center justify-between gap-2 mb-3">
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/30">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
             Demo Prediction
           </span>
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-[#21262d] text-[#8b949e] border border-[#30363d] uppercase">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#21262d] text-[#8b949e] border border-[#30363d] uppercase">
             {market.category}
           </span>
         </div>
 
         {isResolved ? (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700">
             Resolved
           </span>
         ) : (
@@ -171,10 +170,10 @@ export function PredictionCard({
           <div className="flex items-center justify-between">
             <span className="text-[#8b949e]">Winning Outcome:</span>
             <span
-              className={`font-bold font-mono px-2 py-0.5 rounded ${
+              className={`font-semibold font-mono px-2 py-0.5 rounded text-xs ${
                 market.winning_side === "YES"
-                  ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
-                  : "bg-rose-500/20 text-rose-400 border border-rose-500/30"
+                  ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+                  : "bg-rose-500/10 text-rose-400 border border-rose-500/30"
               }`}
             >
               {market.winning_side}
@@ -185,12 +184,12 @@ export function PredictionCard({
             <div className="pt-1.5 border-t border-[#21262d] flex items-center justify-between font-medium">
               <span className="text-[#8b949e]">Your Pick: {userSide}</span>
               {isWinner && (
-                <span className="inline-flex items-center gap-1 text-emerald-400 font-bold">
+                <span className="inline-flex items-center gap-1 text-emerald-400 font-medium">
                   <HexCheckIcon className="w-3.5 h-3.5" /> Correct (+10 pts)
                 </span>
               )}
               {isLoser && (
-                <span className="inline-flex items-center gap-1 text-rose-400 font-bold">
+                <span className="inline-flex items-center gap-1 text-rose-400 font-medium">
                   <XBadgeIcon className="w-3.5 h-3.5" /> Incorrect (-10 pts)
                 </span>
               )}
@@ -203,41 +202,41 @@ export function PredictionCard({
         </div>
       )}
 
-      {/* Unresolved Market: User Prediction Status Banner */}
+      {/* Unresolved Market: User Prediction Status */}
       {!isResolved && hasPredicted && (
-        <div className="mb-4 p-3 rounded-lg bg-purple-500/10 border border-purple-500/30 text-xs flex items-center gap-2 text-purple-300">
-          <ClockIcon className="w-4 h-4 text-purple-400 shrink-0" />
-          <div className="flex-1 font-medium">
+        <div className="mb-3.5 py-1.5 px-2.5 rounded-lg bg-[#0d1117] border border-[#21262d] text-xs flex items-center gap-2 text-[#8b949e]">
+          <CheckIcon className="w-3.5 h-3.5 text-emerald-400/80 shrink-0" />
+          <span className="text-[11px]">
             You predicted{" "}
-            <span className="font-bold text-white uppercase">{userSide}</span>
+            <span className="font-medium text-[#c9d1d9]">{userSide}</span>
             {" — awaiting resolution"}
-          </div>
+          </span>
         </div>
       )}
 
       {/* Prediction Action Buttons */}
       {!isResolved && (
         <div className="space-y-2">
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-2 gap-2">
             {/* YES Button */}
             <button
               type="button"
               onClick={() => handlePredict("YES")}
               disabled={!connectedWallet || isSubmitting || hasPredicted}
-              className={`py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              className={`w-full py-1.5 px-3 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1.5 ${
                 hasPredicted && userSide === "YES"
-                  ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50 cursor-default"
+                  ? "bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 cursor-default"
                   : hasPredicted
-                  ? "bg-[#21262d]/50 text-gray-500 border border-transparent cursor-not-allowed"
+                  ? "bg-transparent text-[#6e7681] border border-[#21262d] opacity-50 cursor-not-allowed"
                   : !connectedWallet
-                  ? "bg-emerald-950/20 text-emerald-400/50 border border-emerald-500/20 cursor-not-allowed"
-                  : "bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-400 border border-emerald-500/40 hover:border-emerald-400 active:scale-95"
+                  ? "bg-transparent text-emerald-400/50 border border-emerald-500/20 cursor-not-allowed"
+                  : "bg-transparent hover:bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:border-emerald-500/60 active:scale-[0.99]"
               }`}
             >
               {isSubmitting && submittingSide === "YES" ? (
-                <DashedSpinnerIcon className="w-3.5 h-3.5 animate-spin" />
+                <DashedSpinnerIcon className="w-3 h-3 animate-spin text-emerald-400" />
               ) : (
-                <CoinFlipIcon className="w-3.5 h-3.5" />
+                <CheckIcon className="w-3 h-3 text-emerald-400/70" />
               )}
               <span>Predict YES</span>
             </button>
@@ -247,20 +246,20 @@ export function PredictionCard({
               type="button"
               onClick={() => handlePredict("NO")}
               disabled={!connectedWallet || isSubmitting || hasPredicted}
-              className={`py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              className={`w-full py-1.5 px-3 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1.5 ${
                 hasPredicted && userSide === "NO"
-                  ? "bg-rose-500/20 text-rose-300 border border-rose-500/50 cursor-default"
+                  ? "bg-rose-500/10 text-rose-300 border border-rose-500/40 cursor-default"
                   : hasPredicted
-                  ? "bg-[#21262d]/50 text-gray-500 border border-transparent cursor-not-allowed"
+                  ? "bg-transparent text-[#6e7681] border border-[#21262d] opacity-50 cursor-not-allowed"
                   : !connectedWallet
-                  ? "bg-rose-950/20 text-rose-400/50 border border-rose-500/20 cursor-not-allowed"
-                  : "bg-rose-950/40 hover:bg-rose-900/60 text-rose-400 border border-rose-500/40 hover:border-rose-400 active:scale-95"
+                  ? "bg-transparent text-rose-400/50 border border-rose-500/20 cursor-not-allowed"
+                  : "bg-transparent hover:bg-rose-500/10 text-rose-400 border border-rose-500/30 hover:border-rose-500/60 active:scale-[0.99]"
               }`}
             >
               {isSubmitting && submittingSide === "NO" ? (
-                <DashedSpinnerIcon className="w-3.5 h-3.5 animate-spin" />
+                <DashedSpinnerIcon className="w-3 h-3 animate-spin text-rose-400" />
               ) : (
-                <CoinFlipIcon className="w-3.5 h-3.5" />
+                <XBadgeIcon className="w-3 h-3 text-rose-400/70" />
               )}
               <span>Predict NO</span>
             </button>
@@ -280,10 +279,10 @@ export function PredictionCard({
         </div>
       )}
 
-      {/* Footer Info */}
-      <div className="pt-3 mt-3 border-t border-[#21262d] flex items-center justify-between text-[11px] text-[#8b949e]">
-        <span>Points Stakes: ±10 pts</span>
-        <span>Simulated Oracle</span>
+      {/* Platform Mechanics Footer */}
+      <div className="pt-2.5 mt-3 border-t border-[#21262d]/60 flex items-center justify-between text-[10px] text-[#6e7681]">
+        <span>Resolves via admin review</span>
+        <span>±10 pts on outcome</span>
       </div>
 
     </article>

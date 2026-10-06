@@ -1,8 +1,17 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useWallet } from "@solana/wallet-adapter-react";
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+} from "recharts";
 import resolvedMarketsData from "@/lib/mock-data/resolved-markets.json";
 import {
   groupPositionsByWallet,
@@ -21,12 +30,22 @@ import {
   HelpBadgeIcon,
   TrophyIcon,
   CoinFlipIcon,
+  TrendingChartIcon,
 } from "@/components/icons";
 
 interface ProfilePageProps {
   params: {
     wallet: string;
   };
+}
+
+interface WalletPredictionItem {
+  id: string;
+  wallet_address: string;
+  market_id: string;
+  side: "YES" | "NO";
+  points_delta: number | null;
+  created_at: string;
 }
 
 function truncateAddress(addr: string): string {
@@ -39,6 +58,62 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
   const { publicKey } = useWallet();
 
   const [demoPositionsActive, setDemoPositionsActive] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [walletPredictions, setWalletPredictions] = useState<WalletPredictionItem[]>([]);
+  const [loadingHistory, setLoadingHistory] = useState(true);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Fetch /api/wallet/[wallet] for points history
+  useEffect(() => {
+    let isMounted = true;
+    async function loadWalletHistory() {
+      try {
+        setLoadingHistory(true);
+        const res = await fetch(`/api/wallet/${wallet}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (isMounted && data.predictions) {
+            setWalletPredictions(data.predictions);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load wallet predictions history:", err);
+      } finally {
+        if (isMounted) {
+          setLoadingHistory(false);
+        }
+      }
+    }
+    loadWalletHistory();
+    return () => {
+      isMounted = false;
+    };
+  }, [wallet]);
+
+  // Compute running cumulative points balance for recharts LineChart
+  const chartData = useMemo(() => {
+    const resolved = walletPredictions.filter(
+      (p) => typeof p.points_delta === "number" && p.points_delta !== null
+    );
+    if (resolved.length === 0) return [];
+
+    let runningBalance = 100;
+    return resolved.map((p) => {
+      runningBalance += p.points_delta!;
+      const d = new Date(p.created_at);
+      const formattedDate = isNaN(d.getTime())
+        ? p.created_at.slice(5, 10)
+        : d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      return {
+        date: p.created_at,
+        formattedDate,
+        balance: runningBalance,
+      };
+    });
+  }, [walletPredictions]);
 
   const resolvedMarkets = resolvedMarketsData as ResolvedMarket[];
   const grouped = useMemo(
@@ -144,6 +219,103 @@ export default function WalletProfilePage({ params }: ProfilePageProps) {
             <strong className="text-amber-300">Demo mode</strong> — scores are computed from sample prediction data, not live resolved Panta markets yet.
           </span>
         </div>
+
+        {/* Points History Chart (Phase 4E) */}
+        <section className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <TrendingChartIcon className="w-4 h-4 text-purple-400" />
+              <span>Points Balance History</span>
+            </h2>
+            <span className="text-xs font-mono text-[#8b949e]">
+              Base 100 pts · ±10 pts / outcome
+            </span>
+          </div>
+
+          <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-4 sm:p-6 shadow-xl">
+            {loadingHistory ? (
+              <div className="py-12 flex flex-col items-center justify-center gap-2 text-xs text-[#8b949e]">
+                <span>Loading points history...</span>
+              </div>
+            ) : chartData.length === 0 ? (
+              <div className="py-12 text-center text-[#8b949e] space-y-2">
+                <p className="text-sm font-medium text-[#c9d1d9]">
+                  No resolved predictions yet — chart will appear once your first prediction is resolved
+                </p>
+                <p className="text-xs text-[#6e7681]">
+                  Current balance defaults to 100 pts. Resolved test market predictions will trace cumulative balance changes here.
+                </p>
+              </div>
+            ) : mounted ? (
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs text-[#8b949e] px-1">
+                  <span>Starting Balance: <strong className="text-white">100 pts</strong></span>
+                  <span>
+                    Current Cumulative Balance:{" "}
+                    <strong className="text-purple-400 font-mono font-bold">
+                      {chartData[chartData.length - 1].balance} pts
+                    </strong>
+                  </span>
+                </div>
+                <div className="h-64 w-full pt-2">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                      data={chartData}
+                      margin={{ top: 10, right: 15, left: -10, bottom: 0 }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" stroke="#21262d" />
+                      <XAxis
+                        dataKey="formattedDate"
+                        stroke="#6e7681"
+                        fontSize={11}
+                        tickLine={false}
+                        axisLine={{ stroke: "#30363d" }}
+                      />
+                      <YAxis
+                        stroke="#6e7681"
+                        fontSize={11}
+                        tickLine={false}
+                        axisLine={{ stroke: "#30363d" }}
+                        domain={["auto", "auto"]}
+                      />
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: "#161b22",
+                          borderColor: "#30363d",
+                          borderRadius: "0.5rem",
+                          fontSize: "12px",
+                          color: "#f0f6fc",
+                        }}
+                        formatter={(value: number | string | readonly (number | string)[] | undefined) => [
+                          `${value ?? 0} pts`,
+                          "Balance",
+                        ]}
+                        labelFormatter={(label) => (label ? `Date: ${String(label)}` : "")}
+                      />
+                      <Line
+                        type="monotone"
+                        dataKey="balance"
+                        stroke="#a855f7"
+                        strokeWidth={2.5}
+                        dot={{
+                          r: 4,
+                          fill: "#a855f7",
+                          stroke: "#161b22",
+                          strokeWidth: 1,
+                        }}
+                        activeDot={{ r: 6, fill: "#c084fc" }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            ) : (
+              <div className="h-64 w-full flex items-center justify-center text-xs text-[#8b949e]">
+                Loading points chart...
+              </div>
+            )}
+          </div>
+        </section>
 
         {/* Reputational Stat Summary */}
         <section className="space-y-3">
