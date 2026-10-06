@@ -101,13 +101,13 @@ export default function PredictPage() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
         
         {/* Prominent Demo Prediction Game Banner */}
-        <div className="bg-purple-500/10 border border-purple-500/30 text-purple-200 px-4 py-3.5 rounded-xl flex items-start sm:items-center gap-3 text-xs sm:text-sm font-medium shadow-md">
+        <div className="bg-blue-500/10 border border-blue-500/30 text-blue-200 px-4 py-3.5 rounded-xl flex items-start sm:items-center gap-3 text-xs sm:text-sm font-medium shadow-md">
           <span className="flex h-2.5 w-2.5 relative shrink-0 mt-0.5 sm:mt-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
           </span>
           <span>
-            <strong className="text-purple-300">Demo Prediction Game</strong> — practice predictions using sample questions for points only. Not a real Panta trade.
+            <strong className="text-blue-300">Demo Prediction Game</strong> — practice predictions using sample questions for points only. Not a real Panta trade.
           </span>
         </div>
 
@@ -115,8 +115,8 @@ export default function PredictPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#21262d]">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <CrosshairIcon className="w-4 h-4 text-purple-400" />
-              <span className="text-xs font-semibold tracking-wider uppercase text-purple-400">
+              <CrosshairIcon className="w-4 h-4 text-blue-400" />
+              <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
                 Phase 4: Points Simulation Engine
               </span>
             </div>
@@ -134,7 +134,7 @@ export default function PredictPage() {
               <span className="text-[10px] text-[#8b949e] block font-mono uppercase">
                 Points Balance
               </span>
-              <span className="text-xl font-bold font-mono text-amber-400">
+              <span className="text-xl font-bold font-mono text-blue-400">
                 {connected ? `${pointsBalance} pts` : "100 pts"}
               </span>
             </div>
@@ -152,7 +152,7 @@ export default function PredictPage() {
         {/* Loading Spinner */}
         {loading ? (
           <div className="py-20 flex flex-col items-center justify-center gap-3 text-[#8b949e]">
-            <DashedSpinnerIcon className="w-8 h-8 animate-spin text-purple-400" />
+            <DashedSpinnerIcon className="w-8 h-8 animate-spin text-blue-400" />
             <span className="text-xs">Loading test prediction markets...</span>
           </div>
         ) : (
@@ -206,7 +206,7 @@ export default function PredictPage() {
                   <button
                     type="button"
                     onClick={() => setShowResolved((prev) => !prev)}
-                    className="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
+                    className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
                   >
                     <span>{showResolved ? "Hide Resolved" : "Show Resolved"}</span>
                     <span>{showResolved ? "↑" : "↓"}</span>

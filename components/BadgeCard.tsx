@@ -72,7 +72,7 @@ export const BADGE_METADATA: Record<
     title: "Specialist Contrarian",
     description: "Accurately called a high-stakes outcome with entry odds ≤15¢.",
     requirement: "Win a pick with entry price ≤ $0.15",
-    gradient: "from-fuchsia-500 via-purple-500 to-indigo-600",
+    gradient: "from-fuchsia-500 via-blue-500 to-blue-700",
     borderColor: "border-fuchsia-500/50",
     textColor: "text-fuchsia-400",
     icon: CrosshairIcon,
@@ -134,7 +134,7 @@ export function BadgeCard({
         </span>
 
         {unlocked ? (
-          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">
             <CheckIcon className="w-3 h-3" />
             Soulbound Ready
           </span>

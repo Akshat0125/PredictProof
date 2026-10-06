@@ -132,12 +132,12 @@ export function PredictionCard({
     isResolved && userSide && market.winning_side && userSide !== market.winning_side;
 
   return (
-    <article className="group bg-[#161b22] hover:bg-[#1c2128] border border-[#30363d] hover:border-purple-500/30 rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 shadow-md shadow-black/20 hover:shadow-black/40 relative">
+    <article className="group bg-[#161b22] hover:bg-[#1c2128] border border-[#30363d] hover:border-blue-500/30 rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 shadow-md shadow-black/20 hover:shadow-black/40 relative">
       
       {/* Top Header: Category Pill & Distinct "Demo Prediction" Badge */}
       <div className="flex items-center justify-between gap-2 mb-3">
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-500/10 text-blue-300 border border-blue-500/20">
             Demo Prediction
           </span>
           <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#21262d] text-[#8b949e] border border-[#30363d] uppercase">
@@ -150,8 +150,8 @@ export function PredictionCard({
             Resolved
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
             Active
           </span>
         )}
@@ -172,8 +172,8 @@ export function PredictionCard({
             <span
               className={`font-semibold font-mono px-2 py-0.5 rounded text-xs ${
                 market.winning_side === "YES"
-                  ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
-                  : "bg-rose-500/10 text-rose-400 border border-rose-500/30"
+                  ? "bg-blue-500/10 text-blue-400 border border-blue-500/30"
+                  : "bg-red-500/10 text-red-400 border border-red-500/30"
               }`}
             >
               {market.winning_side}
@@ -184,12 +184,12 @@ export function PredictionCard({
             <div className="pt-1.5 border-t border-[#21262d] flex items-center justify-between font-medium">
               <span className="text-[#8b949e]">Your Pick: {userSide}</span>
               {isWinner && (
-                <span className="inline-flex items-center gap-1 text-emerald-400 font-medium">
+                <span className="inline-flex items-center gap-1 text-blue-400 font-medium">
                   <HexCheckIcon className="w-3.5 h-3.5" /> Correct (+10 pts)
                 </span>
               )}
               {isLoser && (
-                <span className="inline-flex items-center gap-1 text-rose-400 font-medium">
+                <span className="inline-flex items-center gap-1 text-red-400 font-medium">
                   <XBadgeIcon className="w-3.5 h-3.5" /> Incorrect (-10 pts)
                 </span>
               )}
@@ -205,7 +205,7 @@ export function PredictionCard({
       {/* Unresolved Market: User Prediction Status */}
       {!isResolved && hasPredicted && (
         <div className="mb-3.5 py-1.5 px-2.5 rounded-lg bg-[#0d1117] border border-[#21262d] text-xs flex items-center gap-2 text-[#8b949e]">
-          <CheckIcon className="w-3.5 h-3.5 text-emerald-400/80 shrink-0" />
+          <CheckIcon className="w-3.5 h-3.5 text-blue-400/80 shrink-0" />
           <span className="text-[11px]">
             You predicted{" "}
             <span className="font-medium text-[#c9d1d9]">{userSide}</span>
@@ -225,18 +225,18 @@ export function PredictionCard({
               disabled={!connectedWallet || isSubmitting || hasPredicted}
               className={`w-full py-1.5 px-3 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1.5 ${
                 hasPredicted && userSide === "YES"
-                  ? "bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 cursor-default"
+                  ? "bg-blue-500/10 text-blue-300 border border-blue-500/40 cursor-default"
                   : hasPredicted
                   ? "bg-transparent text-[#6e7681] border border-[#21262d] opacity-50 cursor-not-allowed"
                   : !connectedWallet
-                  ? "bg-transparent text-emerald-400/50 border border-emerald-500/20 cursor-not-allowed"
-                  : "bg-transparent hover:bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:border-emerald-500/60 active:scale-[0.99]"
+                  ? "bg-transparent text-blue-400/50 border border-blue-500/20 cursor-not-allowed"
+                  : "bg-transparent hover:bg-blue-500/10 text-blue-400 border border-blue-500/30 hover:border-blue-500/60 active:scale-[0.99]"
               }`}
             >
               {isSubmitting && submittingSide === "YES" ? (
-                <DashedSpinnerIcon className="w-3 h-3 animate-spin text-emerald-400" />
+                <DashedSpinnerIcon className="w-3 h-3 animate-spin text-blue-400" />
               ) : (
-                <CheckIcon className="w-3 h-3 text-emerald-400/70" />
+                <CheckIcon className="w-3 h-3 text-blue-400/70" />
               )}
               <span>Predict YES</span>
             </button>
@@ -248,18 +248,18 @@ export function PredictionCard({
               disabled={!connectedWallet || isSubmitting || hasPredicted}
               className={`w-full py-1.5 px-3 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1.5 ${
                 hasPredicted && userSide === "NO"
-                  ? "bg-rose-500/10 text-rose-300 border border-rose-500/40 cursor-default"
+                  ? "bg-red-500/10 text-red-300 border border-red-500/40 cursor-default"
                   : hasPredicted
                   ? "bg-transparent text-[#6e7681] border border-[#21262d] opacity-50 cursor-not-allowed"
                   : !connectedWallet
-                  ? "bg-transparent text-rose-400/50 border border-rose-500/20 cursor-not-allowed"
-                  : "bg-transparent hover:bg-rose-500/10 text-rose-400 border border-rose-500/30 hover:border-rose-500/60 active:scale-[0.99]"
+                  ? "bg-transparent text-red-400/50 border border-red-500/20 cursor-not-allowed"
+                  : "bg-transparent hover:bg-red-500/10 text-red-400 border border-red-500/30 hover:border-red-500/60 active:scale-[0.99]"
               }`}
             >
               {isSubmitting && submittingSide === "NO" ? (
-                <DashedSpinnerIcon className="w-3 h-3 animate-spin text-rose-400" />
+                <DashedSpinnerIcon className="w-3 h-3 animate-spin text-red-400" />
               ) : (
-                <XBadgeIcon className="w-3 h-3 text-rose-400/70" />
+                <XBadgeIcon className="w-3 h-3 text-red-400/70" />
               )}
               <span>Predict NO</span>
             </button>
@@ -272,7 +272,7 @@ export function PredictionCard({
           )}
 
           {errorMessage && (
-            <p className="text-[11px] text-center text-rose-400 font-medium">
+            <p className="text-[11px] text-center text-red-400 font-medium">
               {errorMessage}
             </p>
           )}

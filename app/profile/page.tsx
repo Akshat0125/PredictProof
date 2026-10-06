@@ -61,10 +61,10 @@ export default function ProfileRootPage() {
         
         {/* Connect Wallet Hero Box */}
         <div className="bg-[#161b22] border border-[#30363d] rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 blur-3xl pointer-events-none rounded-full" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-600/10 blur-3xl pointer-events-none rounded-full" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-3xl pointer-events-none rounded-full" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-700/10 blur-3xl pointer-events-none rounded-full" />
 
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center mx-auto shadow-lg shadow-purple-600/30">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-blue-700 flex items-center justify-center mx-auto shadow-lg shadow-blue-600/30">
             <SolanaWalletIcon className="w-8 h-8 text-white" />
           </div>
 
@@ -73,7 +73,7 @@ export default function ProfileRootPage() {
               Connect Your Solana Wallet
             </h1>
             <p className="text-xs sm:text-sm text-[#8b949e]">
-              Connect your wallet on <span className="text-purple-400 font-semibold">Solana Devnet</span> to load your
+              Connect your wallet on <span className="text-blue-400 font-semibold">Solana Devnet</span> to load your
               prediction reputation metrics, check your streak, and view your soulbound badge status.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function ProfileRootPage() {
         <div className="space-y-4 pt-4">
           <div className="text-center space-y-1">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-[#8b949e] flex items-center justify-center gap-1.5">
-              <CoinFlipIcon className="w-4 h-4 text-purple-400" />
+              <CoinFlipIcon className="w-4 h-4 text-blue-400" />
               Explore Sample Predictor Profiles
             </h2>
             <p className="text-xs text-[#6e7681]">
@@ -117,7 +117,7 @@ export default function ProfileRootPage() {
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-[#21262d] flex items-center justify-between text-xs font-mono">
-                    <span className="text-emerald-400 font-bold">{sample.accuracy} Acc</span>
+                    <span className="text-blue-400 font-bold">{sample.accuracy} Acc</span>
                     <span className="text-white font-bold">{sample.score}</span>
                     <ArrowRightIcon className="w-3.5 h-3.5 text-[#6e7681] group-hover:translate-x-1 group-hover:text-white transition-all" />
                   </div>

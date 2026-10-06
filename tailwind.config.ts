@@ -27,18 +27,18 @@ const config: Config = {
           foreground: "#6e7681",
         },
         brand: {
-          50: "#f5f3ff",
-          100: "#ede9fe",
-          400: "#a78bfa",
-          500: "#8b5cf6",
-          600: "#7c3aed",
-          700: "#6d28d9",
+          50: "#eff6ff",
+          100: "#dbeafe",
+          400: "#60a5fa",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
         },
         yes: {
-          DEFAULT: "#10b981", // emerald-500
-          light: "#34d399",
-          dark: "#059669",
-          bg: "#064e3b",
+          DEFAULT: "#3b82f6", // blue-500
+          light: "#60a5fa",
+          dark: "#2563eb",
+          bg: "#1e3a8a",
         },
         no: {
           DEFAULT: "#ef4444", // red-500

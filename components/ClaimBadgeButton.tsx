@@ -195,7 +195,7 @@ export function ClaimBadgeButton({
       <div className="space-y-1.5">
         <button
           disabled
-          className="w-full py-2 px-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold flex items-center justify-center gap-1.5 cursor-default"
+          className="w-full py-2 px-3 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold flex items-center justify-center gap-1.5 cursor-default"
         >
           <HexCheckIcon className="w-3.5 h-3.5" />
           <span>Claimed ✓</span>
@@ -206,7 +206,7 @@ export function ClaimBadgeButton({
             href={`https://explorer.solana.com/tx/${txSignature}?cluster=devnet`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 text-[10px] text-purple-400 hover:text-purple-300 font-mono transition-colors"
+            className="flex items-center justify-center gap-1 text-[10px] text-blue-400 hover:text-blue-300 font-mono transition-colors"
           >
             <span>View Mint Tx</span>
             <ExternalLinkIcon className="w-3 h-3" />
@@ -221,7 +221,7 @@ export function ClaimBadgeButton({
       <button
         onClick={handleClaim}
         disabled={isClaiming || !anchorWallet}
-        className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-md shadow-purple-900/30 transition-all active:scale-[0.98]"
+        className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 disabled:opacity-60 disabled:cursor-not-allowed text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-md shadow-blue-900/30 transition-all active:scale-[0.98]"
       >
         {isClaiming ? (
           <>
@@ -237,7 +237,7 @@ export function ClaimBadgeButton({
       </button>
 
       {errorMessage && (
-        <div className="flex items-start gap-1 text-[11px] text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2 rounded-lg">
+        <div className="flex items-start gap-1 text-[11px] text-red-400 bg-red-500/10 border border-red-500/20 p-2 rounded-lg">
           <AlertTriangleIcon className="w-3.5 h-3.5 shrink-0 mt-0.5" />
           <span className="leading-tight">{errorMessage}</span>
         </div>

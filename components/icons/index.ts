@@ -22,3 +22,4 @@ export { LightningIcon } from "./LightningIcon";
 export { HelpBadgeIcon } from "./HelpBadgeIcon";
 export { XBadgeIcon } from "./XBadgeIcon";
 export { SolanaWalletIcon } from "./SolanaWalletIcon";
+export { BadgeMedalIcon } from "./BadgeMedalIcon";

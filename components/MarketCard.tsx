@@ -57,7 +57,7 @@ export function MarketCard({ market }: MarketCardProps) {
             </span>
           )}
           {market.phase && (
-            <span className="capitalize px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-medium">
+            <span className="capitalize px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[10px] font-medium">
               {market.phase}
             </span>
           )}
@@ -80,8 +80,8 @@ export function MarketCard({ market }: MarketCardProps) {
       <div className="space-y-2 mb-4">
         <div className="grid grid-cols-2 gap-2">
           {/* YES Outcome */}
-          <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-xs">
-            <span className="font-semibold text-emerald-400">YES</span>
+          <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-blue-950/30 border border-blue-500/30 text-xs">
+            <span className="font-semibold text-blue-400">YES</span>
             <div className="text-right">
               <span className="font-mono font-bold text-white text-sm">
                 {yesPct}%
@@ -93,8 +93,8 @@ export function MarketCard({ market }: MarketCardProps) {
           </div>
 
           {/* NO Outcome */}
-          <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-rose-950/30 border border-rose-500/30 text-xs">
-            <span className="font-semibold text-rose-400">NO</span>
+          <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-red-950/30 border border-red-500/30 text-xs">
+            <span className="font-semibold text-red-400">NO</span>
             <div className="text-right">
               <span className="font-mono font-bold text-white text-sm">
                 {noPct}%
@@ -110,19 +110,19 @@ export function MarketCard({ market }: MarketCardProps) {
         <div className="space-y-1">
           <div className="w-full h-2 rounded-full bg-[#21262d] overflow-hidden flex">
             <div
-              className="bg-emerald-500 h-full transition-all duration-500"
+              className="bg-blue-500 h-full transition-all duration-500"
               style={{ width: `${yesPct}%` }}
               title={`YES: ${yesPct}%`}
             />
             <div
-              className="bg-rose-500 h-full transition-all duration-500"
+              className="bg-red-500 h-full transition-all duration-500"
               style={{ width: `${noPct}%` }}
               title={`NO: ${noPct}%`}
             />
           </div>
           <div className="flex justify-between items-center text-[10px] text-[#6e7681] px-0.5">
-            <span className="text-emerald-400/90 font-medium">Yes {yesPct}%</span>
-            <span className="text-rose-400/90 font-medium">No {noPct}%</span>
+            <span className="text-blue-400/90 font-medium">Yes {yesPct}%</span>
+            <span className="text-red-400/90 font-medium">No {noPct}%</span>
           </div>
         </div>
       </div>

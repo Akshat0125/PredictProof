@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useWallet } from "@solana/wallet-adapter-react";
 import {
-  ShieldCheckIcon,
+  BadgeMedalIcon,
   TrophyIcon,
   CoinFlipIcon,
   TrendingChartIcon,
@@ -86,13 +86,13 @@ export function Navbar({
           {/* Logo & Brand */}
           <div className="flex items-center gap-3 shrink-0">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-500/20 group-hover:scale-105 transition-transform">
-                <ShieldCheckIcon className="w-5 h-5 text-white" />
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                <BadgeMedalIcon className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5">
                   PredictProof
-                  <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
                     Panta
                   </span>
                 </span>
@@ -133,7 +133,7 @@ export function Navbar({
                     : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
                 }`}
               >
-                <TrendingChartIcon className="w-4 h-4 text-emerald-400" />
+                <TrendingChartIcon className="w-4 h-4 text-blue-400" />
                 <span>Markets</span>
               </Link>
               <Link
@@ -144,7 +144,7 @@ export function Navbar({
                     : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
                 }`}
               >
-                <CrosshairIcon className="w-4 h-4 text-purple-400" />
+                <CrosshairIcon className="w-4 h-4 text-blue-400" />
                 <span>Predict</span>
               </Link>
               <Link
@@ -166,7 +166,7 @@ export function Navbar({
                     : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
                 }`}
               >
-                <CoinFlipIcon className="w-4 h-4 text-purple-400" />
+                <CoinFlipIcon className="w-4 h-4 text-blue-400" />
                 <span>My Profile</span>
               </Link>
             </div>
@@ -184,7 +184,7 @@ export function Navbar({
                       : "text-[#8b949e] hover:text-white hover:bg-[#161b22]"
                   }`}
                 >
-                  <CrosshairIcon className="w-3.5 h-3.5 text-purple-400" />
+                  <CrosshairIcon className="w-3.5 h-3.5 text-blue-400" />
                   <span>Predict</span>
                 </Link>
                 <Link
@@ -198,7 +198,7 @@ export function Navbar({
                   href="/profile"
                   className="hidden lg:flex items-center gap-1.5 text-xs font-medium text-[#8b949e] hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-[#161b22] transition-colors"
                 >
-                  <CoinFlipIcon className="w-3.5 h-3.5 text-purple-400" />
+                  <CoinFlipIcon className="w-3.5 h-3.5 text-blue-400" />
                   <span>Profile</span>
                 </Link>
               </>
@@ -206,8 +206,8 @@ export function Navbar({
 
             {/* Points Balance Pill */}
             {connected && pointsBalance !== null && (
-              <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs font-bold shadow-sm">
-                <span className="text-[10px] text-amber-400 uppercase">Pts</span>
+              <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-300 font-mono text-xs font-bold shadow-sm">
+                <span className="text-[10px] text-blue-400 uppercase">Pts</span>
                 <span>{pointsBalance}</span>
               </div>
             )}

@@ -181,7 +181,7 @@ export default function LeaderboardPage() {
               <span className="text-[10px] uppercase font-mono tracking-wider text-[#8b949e] block">
                 Bonus Pool
               </span>
-              <span className="text-lg font-bold text-emerald-400 font-mono">
+              <span className="text-lg font-bold text-blue-400 font-mono">
                 +{totalUnderdogBonuses}
               </span>
             </div>
@@ -195,12 +195,12 @@ export default function LeaderboardPage() {
             onClick={() => setActiveTab("month")}
             className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
               activeTab === "month"
-                ? "bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm shadow-purple-500/10"
+                ? "bg-blue-500/20 text-blue-300 border border-blue-500/40 shadow-sm shadow-blue-500/10"
                 : "text-[#8b949e] hover:text-white hover:bg-[#21262d] border border-transparent"
             }`}
           >
             <span>This Month</span>
-            <span className="text-[10px] bg-purple-500/30 text-purple-200 px-1.5 py-0.5 rounded font-mono">
+            <span className="text-[10px] bg-blue-500/30 text-blue-200 px-1.5 py-0.5 rounded font-mono">
               Points
             </span>
           </button>
@@ -209,7 +209,7 @@ export default function LeaderboardPage() {
             onClick={() => setActiveTab("all-time")}
             className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
               activeTab === "all-time"
-                ? "bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm shadow-purple-500/10"
+                ? "bg-blue-500/20 text-blue-300 border border-blue-500/40 shadow-sm shadow-blue-500/10"
                 : "text-[#8b949e] hover:text-white hover:bg-[#21262d] border border-transparent"
             }`}
           >
@@ -225,14 +225,14 @@ export default function LeaderboardPage() {
           <div className="space-y-4">
             <div className="bg-[#161b22] border border-[#30363d] rounded-xl p-4 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[#8b949e]">
               <div className="flex items-center gap-2">
-                <TrophyIcon className="w-4 h-4 text-purple-400 shrink-0" />
+                <TrophyIcon className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>
                   <strong className="text-white">Monthly Competition:</strong> Wallets ranked by points earned from resolved test market predictions during the current month (±10 pts per prediction).
                 </span>
               </div>
               <Link
                 href="/predict"
-                className="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1 shrink-0"
+                className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1 shrink-0"
               >
                 Make Predictions →
               </Link>
@@ -240,7 +240,7 @@ export default function LeaderboardPage() {
 
             {loadingMonthly ? (
               <div className="py-20 flex flex-col items-center justify-center gap-3 text-[#8b949e]">
-                <DashedSpinnerIcon className="w-7 h-7 animate-spin text-purple-400" />
+                <DashedSpinnerIcon className="w-7 h-7 animate-spin text-blue-400" />
                 <span className="text-xs">Loading monthly standings...</span>
               </div>
             ) : monthlyData.length === 0 ? (
@@ -252,7 +252,7 @@ export default function LeaderboardPage() {
                 <div className="pt-2">
                   <Link
                     href="/predict"
-                    className="inline-block px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold transition-colors"
+                    className="inline-block px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors"
                   >
                     Go to Demo Prediction Game
                   </Link>
@@ -286,10 +286,10 @@ export default function LeaderboardPage() {
                             <td className="py-4 px-4 whitespace-nowrap">
                               <Link
                                 href={`/profile/${entry.wallet}`}
-                                className="font-mono text-sm text-white hover:text-purple-400 font-semibold transition-colors flex items-center gap-1.5"
+                                className="font-mono text-sm text-white hover:text-blue-400 font-semibold transition-colors flex items-center gap-1.5"
                               >
                                 {formatWallet(entry.wallet)}
-                                <ArrowUpRightIcon className="w-3.5 h-3.5 text-[#6e7681] group-hover:text-purple-400 transition-colors" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5 text-[#6e7681] group-hover:text-blue-400 transition-colors" />
                               </Link>
                             </td>
                             <td className="py-4 px-4 text-center whitespace-nowrap font-mono text-xs">
@@ -301,8 +301,8 @@ export default function LeaderboardPage() {
                               <span
                                 className={`text-sm font-bold tracking-tight px-2.5 py-1 rounded-lg border ${
                                   entry.monthlyPoints >= 0
-                                    ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
-                                    : "bg-rose-500/10 text-rose-400 border-rose-500/30"
+                                    ? "bg-blue-500/10 text-blue-400 border-blue-500/30"
+                                    : "bg-red-500/10 text-red-400 border-red-500/30"
                                 }`}
                               >
                                 {entry.monthlyPoints > 0
@@ -314,7 +314,7 @@ export default function LeaderboardPage() {
                             <td className="py-4 px-4 text-right whitespace-nowrap">
                               <Link
                                 href={`/profile/${entry.wallet}`}
-                                className="inline-flex items-center gap-1 text-xs font-medium text-purple-400 hover:text-white px-2.5 py-1 rounded-lg hover:bg-[#21262d] transition-colors"
+                                className="inline-flex items-center gap-1 text-xs font-medium text-blue-400 hover:text-white px-2.5 py-1 rounded-lg hover:bg-[#21262d] transition-colors"
                               >
                                 Profile →
                               </Link>
@@ -340,7 +340,7 @@ export default function LeaderboardPage() {
                             {getRankBadge(rank)}
                             <Link
                               href={`/profile/${entry.wallet}`}
-                              className="font-mono text-sm font-bold text-white hover:text-purple-400 transition-colors"
+                              className="font-mono text-sm font-bold text-white hover:text-blue-400 transition-colors"
                             >
                               {formatWallet(entry.wallet)}
                             </Link>
@@ -348,8 +348,8 @@ export default function LeaderboardPage() {
                           <span
                             className={`font-mono text-xs font-bold px-2 py-0.5 rounded border ${
                               entry.monthlyPoints >= 0
-                                ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
-                                : "bg-rose-500/10 text-rose-400 border-rose-500/30"
+                                ? "bg-blue-500/10 text-blue-400 border-blue-500/30"
+                                : "bg-red-500/10 text-red-400 border-red-500/30"
                             }`}
                           >
                             {entry.monthlyPoints > 0
@@ -367,7 +367,7 @@ export default function LeaderboardPage() {
                           </span>
                           <Link
                             href={`/profile/${entry.wallet}`}
-                            className="text-purple-400 font-semibold hover:underline inline-flex items-center gap-1"
+                            className="text-blue-400 font-semibold hover:underline inline-flex items-center gap-1"
                           >
                             View Profile →
                           </Link>
@@ -462,7 +462,7 @@ export default function LeaderboardPage() {
                           <div className="flex items-center gap-2">
                             <div className="w-16 h-2 rounded-full bg-[#21262d] overflow-hidden flex">
                               <div
-                                className="bg-emerald-500 h-full rounded-full"
+                                className="bg-blue-500 h-full rounded-full"
                                 style={{ width: `${Math.min(100, score.accuracyPct)}%` }}
                               />
                             </div>
@@ -493,7 +493,7 @@ export default function LeaderboardPage() {
                         {/* Underdog Bonus */}
                         <td className="py-4 px-4 text-right whitespace-nowrap font-mono text-xs">
                           {score.underdogBonus > 0 ? (
-                            <span className="text-emerald-400 font-semibold">
+                            <span className="text-blue-400 font-semibold">
                               +{score.underdogBonus}
                             </span>
                           ) : (
@@ -560,7 +560,7 @@ export default function LeaderboardPage() {
                       </div>
                       <div className="bg-[#0d1117] p-2 rounded-lg border border-[#21262d]">
                         <span className="text-[10px] text-[#8b949e] uppercase font-mono block">Accuracy</span>
-                        <span className="font-mono font-bold text-sm text-emerald-400">{score.accuracyPct}%</span>
+                        <span className="font-mono font-bold text-sm text-blue-400">{score.accuracyPct}%</span>
                       </div>
                       <div className="bg-[#0d1117] p-2 rounded-lg border border-[#21262d]">
                         <span className="text-[10px] text-[#8b949e] uppercase font-mono block">Picks</span>
@@ -596,7 +596,7 @@ export default function LeaderboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8b949e]">
           <div>
             PredictProof Scoring Engine • devnet Anchor Program ID:{" "}
-            <span className="text-purple-400 font-mono">BMwNMcr...bafz</span>
+            <span className="text-blue-400 font-mono">BMwNMcr...bafz</span>
           </div>
           <div>Ranked by verified predictive accuracy & underdog odds</div>
         </div>

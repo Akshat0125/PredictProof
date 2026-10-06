@@ -51,10 +51,10 @@ export function MarketFeed({
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              <span className="text-xs font-semibold tracking-wider uppercase text-emerald-400">
+              <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
                 Panta Live Markets Feed
               </span>
             </div>
@@ -70,12 +70,12 @@ export function MarketFeed({
           {/* Quick Stats Pill */}
           <div className="flex items-center gap-2 self-start md:self-auto bg-[#161b22] border border-[#30363d] px-3.5 py-2 rounded-xl text-xs text-[#8b949e]">
             <div className="flex items-center gap-1.5 text-[#f0f6fc]">
-              <LayersIcon className="w-4 h-4 text-purple-400" />
+              <LayersIcon className="w-4 h-4 text-blue-400" />
               <span className="font-semibold">{initialMarkets.length}</span>
               <span className="text-[#8b949e]">Market{initialMarkets.length === 1 ? "" : "s"}</span>
             </div>
             <span className="text-[#30363d]">|</span>
-            <div className="flex items-center gap-1 text-emerald-400">
+            <div className="flex items-center gap-1 text-blue-400">
               <LightningIcon className="w-3.5 h-3.5" />
               <span>Live Binary Odds</span>
             </div>
@@ -168,18 +168,18 @@ export function MarketFeed({
             {/* Soulbound Badges Preview */}
             <Link
               href="/profile"
-              className="bg-[#161b22] hover:bg-[#1c2128] border border-[#30363d] hover:border-purple-500/40 rounded-xl p-5 space-y-2.5 transition-all group"
+              className="bg-[#161b22] hover:bg-[#1c2128] border border-[#30363d] hover:border-blue-500/40 rounded-xl p-5 space-y-2.5 transition-all group"
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-purple-400">
+                <div className="flex items-center gap-2 text-blue-400">
                   <HexCheckIcon className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Soulbound NFT Badges</span>
                 </div>
-                <span className="text-xs text-purple-400 font-semibold group-hover:translate-x-0.5 transition-transform">
+                <span className="text-xs text-blue-400 font-semibold group-hover:translate-x-0.5 transition-transform">
                   View Badges →
                 </span>
               </div>
-              <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-purple-300 transition-colors">
+              <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-blue-300 transition-colors">
                 Non-Transferable On-Chain Badges
               </h3>
               <p className="text-xs text-[#8b949e] leading-relaxed">
@@ -204,7 +204,7 @@ export function MarketFeed({
           <div className="flex items-center gap-4 text-[11px]">
             <span>Panta API v1</span>
             <span>Solana Devnet</span>
-            <span className="text-purple-400 font-mono">BMwNMcr...bafz</span>
+            <span className="text-blue-400 font-mono">BMwNMcr...bafz</span>
           </div>
         </div>
       </footer>
