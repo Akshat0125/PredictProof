@@ -145,6 +145,15 @@ npm run build
 
 ---
 
+## Roadmap
+
+- **Monthly Champion on-chain badge**: an additional soulbound NFT tier awarded to whoever tops the monthly points leaderboard each month. The underlying mechanism already exists in principle (reusing the same `create_event` / `check_in` pattern as the 4 existing badge tiers), but is intentionally not yet built — crowning a "monthly" winner isn't meaningful until a full month of real prediction data has elapsed.
+- **Live Panta market resolution**: once Panta's production API moves markets beyond the current test-mode sandbox fixture, lifetime accuracy scoring can read directly from real resolved Panta markets instead of the current sample/mock dataset.
+- **Expanded test market catalog**: the demo prediction game currently ships with 6 seeded sample questions; this is designed to scale to a larger, rotating set of questions without any schema changes.
+- **Automated resolution**: market resolution currently runs via a manually-invoked admin script (`scripts/resolve-market.ts`); a future version could pull real outcomes from a trusted oracle or news API automatically.
+
+---
+
 ## License
 
 MIT
